@@ -1,3 +1,4 @@
+# importing the required modules
 import os
 import shutil
 import time
@@ -7,20 +8,17 @@ def main():
 
 	# initializing the count
 	deleted_folders_count = 0
-    
-    deleted_files_count = 0
+	deleted_files_count = 0
 
 	# specify the path
-	path = "/C:/Users/darsh/Downloads/RGB_Fusion_B21.0608.1"
+	path = "/PATH_TO_DELETE"
 
 	# specify the days
 	days = 30
 
 	# converting days to seconds
 	# time.time() returns current time in seconds
-
-    seconds = time.time()-(days*24*60*60)
-	
+	seconds = time.time() - (days * 24 * 60 * 60)
 
 	# checking whether the file is present in path or not
 	if os.path.exists(path):
@@ -61,8 +59,7 @@ def main():
 					file_path = os.path.join(root_folder, file)
 
 					# comparing the days
-					
-                    if (seconds>=get_file_or_folder_age(file_path)):
+					if seconds >= get_file_or_folder_age(file_path):
 
 						# invoking the remove_file function
 						remove_file(file_path)
@@ -129,4 +126,3 @@ def get_file_or_folder_age(path):
 
 if __name__ == '__main__':
 	main()
-
